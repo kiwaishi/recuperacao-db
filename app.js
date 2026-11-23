@@ -1,7 +1,7 @@
 import express from "express";
 import maquinaRoutes from "./routes/maquinaRoutes.js";
 import leituraEnergiaRoutes from "./routes/leituraEnergiaRoutes.js";
-import { conexao } from "./config/database.js";
+import conexao from "./config/conexao.js";
 
 const app = express();
 const port = Number(process.env.PORT);

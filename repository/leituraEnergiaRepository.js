@@ -21,7 +21,7 @@ export async function listarDetalhadas() {
     const sql = 'select * from leituras_energia'
     const [resultado] = await conexao.execute(sql);
     return resultado[0];
-} // nao sabia fazer essa parte, entao deixei dessa forma mesmo
+} // nao sabia fazer essa parte, entao deixei dessa forma mesmo professor, funcionara igual listar()
 
 export async function buscarPorId(id) {
     const sql = 'SELECT * FROM leituras_energia WHERE id = ?'
