@@ -1,40 +1,36 @@
 import conexao from "../config/conexao.js"
 
 export async function cadastrar(leitura) {
-    const sql = 'codigo sql aq'
-
-    const [resultado] = await conexao.execute(sql);
-
+    const sql = 'INSERT INTO leituras_energia(maquina_id, data_leitura, consumo_kwh, horas_operacao) VALUES (?, ?, ?, ?)'
+    const [resultado] = await conexao.execute(sql,[
+        maquina_id,
+        data_leitura,
+        consumo_kwh,
+        horas_operacao,
+    ]);
     return resultado;
 }
 
 export async function listar() {
-    const sql = 'select * from x'
-
+    const sql = 'select * from leituras_energia'
     const [resultado] = await conexao.execute(sql);
-
     return resultado[0];
 }
 
 export async function listarDetalhadas() {
-    const sql = 'codigo sql aq'
-
+    const sql = 'select * from leituras_energia'
     const [resultado] = await conexao.execute(sql);
-
     return resultado[0];
-}
+} // nao sabia fazer essa parte, entao deixei dessa forma mesmo
 
 export async function buscarPorId(id) {
-    const sql = 'select * from'
-
+    const sql = 'SELECT * FROM leituras_energia WHERE id = ?'
     const [resultado] = await conexao.execute(sql, [id]);
-
     return resultado;
 }
 
 export async function atualizar(id, leitura) {
-    const sql = 'UPDATE X SET X = ? WHERE id = ?'
-
+    const sql = 'UPDATE leituras_energia SET maquina_id = ?, data_leitura = ?, consumo_kwh = ?, horas_operacao = ? WHERE id = ?'
     const [resultado] = await conexao.execute(
         sql,[
             maquina.id,
@@ -43,15 +39,12 @@ export async function atualizar(id, leitura) {
             horas_operacao,
             id
         ]
-    )
-    
-    return resultado // como ta especificando eu nao coloquei affected Rows
+    );
+    return resultado.affectedRows; // como ta especificando eu nao coloquei affected Rows
 }
 
 export async function deletar(id) {
-    const sql = 'DELETE FROM'
-
+    const sql = 'DELETE FROM leituras_energia WHERE id = ?'
     const [resultado] = await conexao.execute(sql,[id])
-
     return resultado.affectedRows;
 }

@@ -1,4 +1,10 @@
+import conexao from "../config/conexao.js"
+
 export async function cadastrar(maquina) {
+    const sql = ''
+    const [resultado] = await conexao.execute(sql,[
+        
+    ])
 }
 
 export async function listar() {
