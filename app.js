@@ -1,7 +1,8 @@
-import express from "express";
+import express from "./node_modules/express/index.js"; // tentei assim e sem a estrutura, deu erro em ambas
 import maquinaRoutes from "./routes/maquinaRoutes.js";
 import leituraEnergiaRoutes from "./routes/leituraEnergiaRoutes.js";
 import conexao from "./config/conexao.js";
+import dotenv from 'dotenv';
 
 const app = express();
 const port = Number(process.env.PORT);
