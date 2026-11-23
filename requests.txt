@@ -1,0 +1,59 @@
+@baseUrl = http://localhost:3001
+
+### Cadastrar máquina
+POST {{baseUrl}}/maquinas
+
+{
+  "codigo": "MQ-001",
+  "nome": "Prensa Hidráulica",
+  "setor": "Estamparia",
+  "status": "ativa"
+}
+
+### Listar máquinas
+GET {{baseUrl}}/maquinas
+
+### Buscar máquina
+GET {{baseUrl}}/maquinas/1
+
+### Atualizar máquina
+PATCH {{baseUrl}}/maquinas/1
+
+{
+  "nome": "Prensa Hidráulica 200 t",
+  "setor": "Produção",
+  "status": "ativa"
+}
+
+### Cadastrar leitura de energia
+POST {{baseUrl}}/leituras
+
+{
+  "maquinaId": 1,
+  "dataLeitura": "2026-11-23",
+  "consumoKwh": 148.75,
+  "horasOperacao": 7.5
+}
+
+### Listar leituras
+GET {{baseUrl}}/leituras
+
+### Listar leituras detalhadas com JOIN
+GET {{baseUrl}}/leituras/detalhadas
+
+### Buscar leitura
+GET {{baseUrl}}/leituras/1
+
+### Atualizar leitura
+PATCH {{baseUrl}}/leituras/1
+
+{
+  "consumoKwh": 152.30,
+  "horasOperacao": 8
+}
+
+### Excluir leitura
+DELETE {{baseUrl}}/leituras/1
+
+### Excluir máquina
+DELETE {{baseUrl}}/maquinas/1
